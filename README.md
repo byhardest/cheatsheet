@@ -8,7 +8,7 @@ Table of Contents
 <br>  1.1 - Unusual Connections/Proccess/Services
   <br>1.2 - Covering Tracks<p>
 <b>2.  Windows</b><p>
-  2.1 - Unusual Connections/Process/Services
-  2.1 Powershell
-  2.2 SMB Commands
+<br>  2.1 - Unusual Connections/Process/Services
+<br>2.1 Powershell
+<br>  2.2 SMB Commands
   
