@@ -1,13 +1,14 @@
 # cheatsheet
-My own cheat sheet & references.
+My own cheat sheet & references. (Under Construction)
 
 Table of Contents
 
-1.  Linux
-  1.1 - Unusual Connections
-  1.2 - Unusual Proccess
-  1.3 - Covering Tracks
-2.  Windows OS
+<html>
+<b>1.  Linux</b>
+  1.1 - Unusual Connections/Proccess/Services
+  1.2 - Covering Tracks
+<b>2.  Windows</b>
+  2.1 - Unusual Connections/Process/Services
   2.1 Powershell
   2.2 SMB Commands
   
