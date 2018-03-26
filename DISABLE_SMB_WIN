@@ -1,0 +1,42 @@
+net share ##check available share  (disks)
+<pre>net share admin$ /delete (delete a mounted shared disk)</pre>
+<pre>list of possible problems deleting administrative share (ok if you're not a server)</pre>
+https://support.microsoft.com/en-us/help/842715/overview-of-problems-that-may-occur-when-administrative-shares-are-mis
+
+Restricting Shares! Very Useful for Workstation and avoid PtH / REmote SMB
+REG ADD “HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters” /f /v AutoShareWks /t REG_DWORD /d 0
+REG ADD “HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters” /f /v AutoShareServer /t REG_DWORD /d 0
+REG ADD “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa” /f /v restrictanonymous /t REG_DWORD /d 1@echo.
+
+net share admin$ /delete
+net share C$ /delete
+net share D$ /delete
+net share E$ /delete
+
+net stop LanmanServer
+sc config LanmanServer start= disabled
+
+
+
+Defense against Evil SMB Sessions (Null session)
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\LSA
+Value Name: RestrictAnonymous
+Data Type: REG_DWORD
+Value: 1
+
+Value Name: RestrictAnonymousSam
+Data Type: REG_DWORD
+Value: 1
+
+Value Name: EveryoneIncludesAnonymous
+Data Type: REG_DWORD
+Value: 0
+
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\LSA\  /f /v RestrictAnonymous /t REG_DWORD /d 1
+
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\LSA\  /f /v RestrictAnonymousSam /t REG_DWORD /d 1
+
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\LSA\  /f /v EveryoneIncludesAnonymous /t REG_DWORD /d 0
+
+Test! net use \\remote_IP_address\ipc$ ”” /u:””

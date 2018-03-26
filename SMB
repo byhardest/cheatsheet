@@ -1,0 +1,35 @@
+Default Shares -> 
+ADMIN$ 
+C$ 
+IPC$ (MS does not recommend to remove and it is not vulnerable to PtH but can allow remote command via PsEXEC for example)
+
+
+Windows
+
+net share ##check available share  (disks)
+<pre>net share admin$ /delete (delete a mounted shared disk)</pre>
+<pre>list of possible problems deleting administrative share (ok if you're not a server)</pre>
+https://support.microsoft.com/en-us/help/842715/overview-of-problems-that-may-occur-when-administrative-shares-are-mis
+
+net view \\127.0.0.1  ##* check local shares<p></p>
+net session ##list SMB connections (inbound) on this computer<p></p>
+net use ##list SMB outbound connections from this computer.<p></p>
+<pre>net session \\{computer_name} /delete ##delete a specific inbound connection<p></p>
+net use \\{IP} /del  ##delete a specific outbound connection
+net use ##list SMB outbound connections from this computer (it does not show explorer connections).<p></p>
+<pre>net use \\live.sysinternals.com ##Connect to a share</pre>
+net use \\{server}\ipc$ /user:"" "" ##connect to a share as anonymous
+nbtstat -S ##NetBIOS over TCP/IP activity. (a final nbtstat could not hurt)
+
+
+Linux
+
+smbclient -L {IP} -U {user} ##Get a list of SHares
+rpclient {IP} -U {user}
+<pre>rpcclient $> enumdomusers ##enumerating users remote computer</pre>
+<pre>$> srvinfo ##IP address OS Version, hostname
+<pre>$> enumalsgroups domain ##pull local / domain-related groups 
+<pre>$> enumalgroups builtin ##pull default groups definied by ms (enabled)</pre>
+<pre>$> queryuser 500 #pull - logon time, last logon, logofftime, password last set time of built-in admin
+<pre>$> lookupnames {account} - Check if that account exist and if it is administrator (outputing ending with -500)
+
