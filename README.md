@@ -10,5 +10,5 @@ Table of Contents
 <b><pre><a href="NMAP">3.1 - Nmap</a></pre></b>
 <b><pre><a href="NCAT">3.2 - Ncat</pre></b>
 <b><pre><a href="MSF">3.3 - Metasploit </b></pre>
-<b><pre><a href="MSF">3.4 - SMB</b></pre>
+<b><pre><a href="SMB">3.4 - SMB</b></pre>
 </html>
