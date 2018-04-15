@@ -1,1 +1,7 @@
+nmap [Scantype] [Options] [targets]
 
+-F scan 100 most popular ports
+
+-p0-65535 (port range)
+
+-iL <filename> (use file with list of targets)
