@@ -1,0 +1,25 @@
+#Unusual Files
+
+find / -uid 0 -perm -4000 -print 
+find / -size +1000k -print
+lsof +L1 ##can find unlinked listeners
+debsums
+
+#Unusual Crontab
+
+crontab -l -u root
+cat /etc/crontab
+ls /etc/cron.*
+
+sort /etc/passwd -nk3 -t: | less #######Looking for new accounts
+
+find / -nouser -print ######owner uid isnt assigned to a del user / orphan files
+
+lsof -p [pid] #####check pid and connection
+
+useradd -ou 0 -g0 user1 ##create a root account
+
+###Unusual Connections
+
+lsof -i
+lsof -i -TCP:22
