@@ -23,3 +23,10 @@ useradd -ou 0 -g0 user1 ##create a root account
 
 lsof -i
 lsof -i -TCP:22
+
+Shell History
+
+Shell history is written when the shell is exited. when editing shell the command
+used to invoke the editor will be placed in the shell hist.
+1) killall -9 bash , 
+2) unset HISTFILE  then kill -9 $$
