@@ -4,7 +4,7 @@ My own cheat sheet & references. (Under Construction)
 Table of Contents
 
 <html>
-<b><a href="LINUX">1.  Linux</b><p>
+<b><pre><a href="LINUX">1.  Linux</b><p></a></pre></b>
 <b>2.  Windows</b><p>
 <b>3. H4cking Tools</b><p>
 &nbsp&nbsp&nbsp<b><pre><a href="NMAP">3.1 - Nmap</a></pre></b>
