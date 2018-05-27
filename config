@@ -3,3 +3,6 @@
 	filemode = true
 	bare = false
 	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/byhardest/byhardest.github.io
+	fetch = +refs/heads/*:refs/remotes/origin/*
